@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Temp Mail Admin Panel
 
-## Getting Started
+Next.js admin dashboard for managing the temporary email service.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui components
+- TanStack Query
+- Axios
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create `.env.local` file:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+```
 
-## Learn More
+## Running
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Development
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Production build
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Admin panel runs at: http://localhost:3001
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/
+│   ├── login/        # Login page
+│   ├── dashboard/    # Statistics dashboard
+│   ├── domains/      # Domain management
+│   ├── api-keys/     # API key management
+│   ├── settings/     # IMAP tester
+│   └── layout.tsx    # Root layout
+├── components/
+│   ├── ui/           # shadcn components
+│   ├── sidebar.tsx   # Navigation sidebar
+│   └── admin-layout.tsx
+├── lib/
+│   ├── auth-context.tsx  # Auth state
+│   ├── query-provider.tsx
+│   ├── types.ts      # TypeScript types
+│   └── utils.ts
+├── services/
+│   └── api.ts        # Axios client
+└── middleware.ts     # Route protection
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| /login | Admin authentication |
+| /dashboard | Statistics overview |
+| /domains | Domain CRUD management |
+| /api-keys | API key generation and management |
+| /settings | IMAP connection tester |
+
+## Features
+
+- JWT-based authentication
+- Auto-logout on 401 response
+- Domain CRUD with modal forms
+- API key generation with copy functionality
+- IMAP connection testing
+- Responsive design
+- Toast notifications
+
+## Backend Requirements
+
+This admin panel requires the backend to be running at the configured API URL.
+
+Required backend endpoints:
+- POST /admin/login
+- GET /admin/stats
+- GET/POST/PATCH/DELETE /admin/domains
+- GET/POST/DELETE /admin/api-keys
+- POST /admin/imap/test
+
+## Default Login
+
+- Email: admin@example.com
+- Password: admin123
+
+## License
+
+MIT
