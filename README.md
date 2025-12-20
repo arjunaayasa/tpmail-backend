@@ -2,6 +2,8 @@
 
 Next.js admin dashboard for managing the temporary email service.
 
+Project for ArvoreCloud. Proudly made by PT Arsya Digital Indonesia.
+
 ## Tech Stack
 
 - Next.js 16 (App Router)
