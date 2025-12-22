@@ -41,11 +41,11 @@ function LoginForm() {
         <Card className="w-full max-w-md">
             <CardHeader className="space-y-1 text-center">
                 <div className="flex justify-center mb-4">
-                    <div className="rounded-full bg-primary/10 p-3">
-                        <Mail className="h-8 w-8 text-primary" />
+                    <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg">
+                        <Mail className="h-8 w-8 text-white" />
                     </div>
                 </div>
-                <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
+                <CardTitle className="text-2xl font-bold">TPMail Admin</CardTitle>
                 <CardDescription>
                     Enter your credentials to access the admin panel
                 </CardDescription>

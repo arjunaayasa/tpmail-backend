@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Globe, Key, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Globe, Mail, Key, Settings, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/lib/auth-context';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
     { name: 'Domains', href: '/domains', icon: Globe },
+    { name: 'Emails', href: '/emails', icon: Mail },
     { name: 'API Keys', href: '/api-keys', icon: Key },
     { name: 'Settings', href: '/settings', icon: Settings },
 ];
@@ -21,8 +22,11 @@ export function Sidebar() {
     return (
         <div className="flex h-screen w-64 flex-col bg-slate-900 text-white">
             {/* Logo */}
-            <div className="flex h-16 items-center justify-center border-b border-slate-700">
-                <h1 className="text-xl font-bold">Mail Admin</h1>
+            <div className="flex h-16 items-center justify-center border-b border-slate-700 gap-2">
+                <div className="p-1.5 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+                    <Mail className="h-5 w-5 text-white" />
+                </div>
+                <h1 className="text-xl font-bold">TPMail</h1>
             </div>
 
             {/* Navigation */}
