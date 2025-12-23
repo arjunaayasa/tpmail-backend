@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
@@ -38,7 +40,7 @@ export default function EmailMessagesPage() {
     const { data: messages = [], isLoading, refetch, isFetching } = useQuery({
         queryKey: ['messages', email],
         queryFn: () => fetchMessages(email),
-        refetchInterval: 30000, // Auto refresh every 30 seconds
+        refetchInterval: 10000, // Auto refresh every 10 seconds
     });
 
     // Update last refresh time
@@ -51,6 +53,7 @@ export default function EmailMessagesPage() {
     const handleManualRefresh = () => {
         refetch();
     };
+
 
     return (
         <AdminLayout>

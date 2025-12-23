@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -67,6 +69,7 @@ export default function EmailsPage() {
             toast.error('Failed to delete email');
         },
     });
+
 
     const handleDelete = () => {
         if (!deletingEmail) return;
